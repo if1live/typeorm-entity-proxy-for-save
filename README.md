@@ -8,7 +8,7 @@ use `repository.save(entity)` with 1 UPDATE query
 async function fn_save(conn: Connection, user: UserEntity) {
   const repo = conn.manager.getRepository(UserEntity);
   user.data = 'save';
-  await repo.save(user);
+  await repo.save(user, { transaction: false });
 }
 ```
 
